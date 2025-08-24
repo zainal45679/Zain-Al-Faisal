@@ -1,21 +1,29 @@
-function calculator(num1, num2, operator){
-    function operator(a,b){
-        switch (operator){
-            case '+': return a + b;
-            case '-': return a - b;
-            case '*': return a * b;
-            case '/': b !== 0 ? a / b : "Cannot perform operation";
-            default : return "Invalid operation";
+class Calculator {
+    constructor(a, b, operation){
+        this.a = a;
+        this.b = b,
+        this.operation = operation;
+    }
+    calculate(){
+        switch (this.operation){
+            case "add":
+                return this.a + this.b;
+            case "sub":
+                return this.a - this.b;
+            case "mul":
+                return this.a * this.b;
+            case "div":
+                return this.b !== 0 ? this.a / this.b : "Cannot perform Division by zero";
+            default :
+                return "Invalid Operation";
         }
     }
-    return operator(num1, num2);
 }
 
-// some examples
+//Sample test
 
-console.log(calculator(2, 10, '+')); // 12
-console.log(calculator(2, 10, '-')); // -8
-console.log(calculator(2, 10, '*')); // 20
-console.log(calculator(10, 2, '/')); // 5
-console.log(calculator(10, 0, '/')); // Cannot perform operation
-console.log(calculator(5, 5, '^'));  // Invalid operation
+let calc1 = new Calculator(10, 5, "add");
+console.log("Addition :", calc1.calculate()); // 15
+
+let clac2 = new Calculator(10, 5, "sub");
+console.log("Subtraction :", clac2.calculate()); //5
